@@ -1,9 +1,55 @@
-import "./styles.css";
+/**
+ *
 
-document.getElementById("app").innerHTML = `
-<h1>Hello Vanilla!</h1>
-<div>
-  We use the same configuration as Parcel to bundle this sandbox, you can find more
-  info about Parcel 
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
-</div>`;
+ # Diamantes
+
+Dado uma letra ('A' a 'Z'), exiba um diamante iniciando em 'A' e tendo a letra fornecida com o ponto mais distante.
+
+Por exemplo, dado a letra 'E' temos:
+
+```
+
+    A   
+
+   B B
+
+  C   C
+
+ D     D
+
+E       E 
+
+ D     D 
+
+  C   C
+
+   B B
+
+    A
+
+```
+
+Dado a letra 'C' temos:
+
+```
+
+  A
+
+ B B
+
+C   C
+
+ B B
+
+  A  
+
+```
+
+Traduzido de: http://www.cyber-dojo.com/
+ */
+
+console.log("olá mundo");
+
+function generateDiamond(letter: string){
+  
+}

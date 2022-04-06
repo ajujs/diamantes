@@ -11,6 +11,9 @@
       "dom"
     ],
     "rootDir": "src",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "types": [
+      "@types"
+    ]
   }
 }
