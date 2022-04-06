@@ -50,6 +50,6 @@ Traduzido de: http://www.cyber-dojo.com/
 
 console.log("olá mundo");
 
-function generateDiamond(letter: string){
-  
-}
+export const generateDiamond = (letter: string) => {
+  return "A";
+};
