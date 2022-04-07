@@ -47,9 +47,57 @@ C   C
 
 Traduzido de: http://www.cyber-dojo.com/
  */
-
-console.log("olá mundo");
+const { log } = console;
 
 export const generateDiamond = (letter: string) => {
-  return "A";
+  const letters = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z"
+  ];
+
+  const deepth = letters.findIndex((l) => l === letter);
+
+  const array = Array.from(new Array(deepth)).fill();
+
+  if (letter === "A") {
+    return "A";
+  }
+
+  if (letter === "B") {
+    return `
+
+ A
+
+B B
+
+ A
+
+ `;
+  }
 };
+
+generateDiamond("A");

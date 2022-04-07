@@ -6,19 +6,50 @@ describe("first test", () => {
   });
 });
 
-describe("test with A", () => {
-  test("should pass", () => {
+describe("diamond renders", () => {
+  test("should render A diamont", () => {
     const diamondExpected = "A";
-    const letter = "A";
-    const result = generateDiamond(letter);
+    const result = generateDiamond("A");
+    expect(result).toEqual(diamondExpected);
+  });
+
+  test("should render B diamont", () => {
+    const diamondExpected = `
+
+ A
+
+B B
+
+ A
+
+ `;
+    const result = generateDiamond("B");
 
     expect(result).toEqual(diamondExpected);
   });
 
-  test("should pass with A and B", () => {
-    const diamondExpected = ` A
-B B
- A`;
+  test("should pass with E", () => {
+    const diamondExpected = `
+
+    A
+
+   B B
+
+  C   C
+
+ D     D
+
+E       E 
+
+ D     D
+
+  C   C
+
+   B B
+
+    A
+
+`;
     const letter = "B";
     const result = generateDiamond(letter);
 
