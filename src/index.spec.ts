@@ -8,21 +8,21 @@ describe("first test", () => {
 
 describe("diamond renders", () => {
   test("should render A diamont", () => {
-    const diamondExpected = "A";
+    const diamondExpected = `
+ A
+`;
     const result = generateDiamond("A");
     expect(result).toEqual(diamondExpected);
   });
 
   test("should render B diamont", () => {
     const diamondExpected = `
-
  A
 
 B B
 
  A
-
- `;
+`;
     const result = generateDiamond("B");
 
     expect(result).toEqual(diamondExpected);
@@ -30,7 +30,6 @@ B B
 
   test("should pass with E", () => {
     const diamondExpected = `
-
     A
 
    B B
@@ -39,7 +38,7 @@ B B
 
  D     D
 
-E       E 
+E       E
 
  D     D
 
@@ -48,9 +47,8 @@ E       E
    B B
 
     A
-
 `;
-    const letter = "B";
+    const letter = "E";
     const result = generateDiamond(letter);
 
     expect(result).toEqual(diamondExpected);

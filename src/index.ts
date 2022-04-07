@@ -47,79 +47,45 @@ C   C
 
 Traduzido de: http://www.cyber-dojo.com/
  */
-const { log } = console;
+
+function generateEmptyLine (size: number) {
+  return Array.from({ length: size }, (_, i) => " ");
+}
+
+function indexToLetter (index: number) {
+  return String.fromCharCode("A".charCodeAt(0) + index);
+}
+
+function letterToIndex (letter: string) {
+  return letter.charCodeAt(0) - "A".charCodeAt(0) + 1;
+}
+
+function calcMiddle (num: number) { 
+  return Math.round(num / 2) + (num % 2);
+}
 
 export const generateDiamond = (letter: string) => {
-  const letters = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z"
-  ];
+  const depth: number = letterToIndex(letter);
+  const middle: number = calcMiddle(depth);
+  const lineSize: number = depth * 2 - 1;
 
-  // const deep = letter.charCodeAt(0) - 'A'.charCodeAt(0);
+  let letterIndexPivot: number = 0;
+  let diamondResult: string = "";
 
-  const deepth = letters.findIndex((l) => l === letter) + 1;
+  for (var i = 0; i < lineSize; i++) {
+    const diamondLine: Array<string> = generateEmptyLine(lineSize);
+    const isBeforeMiddle: boolean = i < depth;
 
-  const genSpaces = (n: number) => {
-    let spaces = "";
-    for (let index = 0; index < n; index++) {
-      spaces += "#";
-    }
-    return Array.from(new Array(n)).fill("#");
-  };
+    letterIndexPivot = isBeforeMiddle ? i : letterIndexPivot - 1;
+    const currentLetter: string = indexToLetter(letterIndexPivot);
 
-  const array = Array.from(new Array(2 * deepth - 1)).map((_, i) => {
-    return genSpaces(deepth + 1);
-  });
+    diamondLine[middle + letterIndexPivot] = currentLetter;
+    diamondLine[middle - letterIndexPivot] = currentLetter;
 
-  log(array);
-
-  const center = Math.floor(deepth / 2) + (deepth % 2);
-  for (let j = 0; j < 2 * deepth - 1; j++) {
-    for (let i = 0; i < deepth; i++) {
-      array[j][center + i] = letters[i];
-      array[j][center - i] = letters[i];
-      log(array[j].join(""));
-    }
+    diamondResult += "\n";
+    diamondResult += diamondLine.join("").trimRight();
+    diamondResult += "\n";
   }
 
-  if (letter === "A") {
-    return "A";
-  }
-
-  if (letter === "B") {
-    return `
- A
-
-B B
-
- A
-
- `;
-  }
+  return diamondResult;
 };
-
-generateDiamond("C");
